@@ -11,7 +11,6 @@ const AlbumCard = ({ width }) => {
         setVisible(!visible);
     }
 
-
     const handleSearch = (e) => {
         e.preventDefault();
         setButtonBool(!buttonBool);
