@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const AlbumCard = ({ width }) => {
-
     const [searchTerm, setSearchTerm] = useState('');
     const [albumImg, setAlbumImg] = useState('');
     const [visible, setVisible] = useState(false);
@@ -12,9 +11,6 @@ const AlbumCard = ({ width }) => {
         setVisible(!visible);
     }
 
-    const removeImage = () => {
-        setAlbumImg("");
-    }
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -41,7 +37,7 @@ const AlbumCard = ({ width }) => {
                 <div>
                     <img src={albumImg} className={`mx-auto`}  />
                     <button onClick={displaySearch} className={`${buttonBool ? 'block' : 'hidden'} transition duration-200 ${visible ? 'rotate-45' : ''}`}>
-                        <img onClick={removeImage} className={`w-28 md:w-32`} src="plus.svg" />
+                        <img className={`w-28 md:w-32`} src="plus.svg" />
                     </button>
                 </div>
             </div>
