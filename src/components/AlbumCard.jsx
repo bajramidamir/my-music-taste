@@ -11,8 +11,14 @@ const AlbumCard = ({ width }) => {
         setVisible(!visible);
     }
 
+    const removeAlbum = () => {
+        setAlbumImg('');
+        setButtonBool(!buttonBool);
+    }
+
     const handleSearch = (e) => {
         e.preventDefault();
+        setSearchTerm('');
         setButtonBool(!buttonBool);
         setVisible(!visible);
         const KEY = import.meta.env.VITE_API_KEY;
@@ -34,7 +40,10 @@ const AlbumCard = ({ width }) => {
 
             <div className={`bg-slate-100 shadow-xl flex items-center justify-center h-40  md:h-56 mx-auto ${width}`}>
                 <div>
-                    <img src={albumImg} className={`mx-auto`}  />
+                    <button onClick={removeAlbum} className={`${buttonBool ? 'hidden' : 'block'}`}>
+                        <img src={albumImg} className={`mx-auto`}  />
+                    </button>
+                    
                     <button onClick={displaySearch} className={`${buttonBool ? 'block' : 'hidden'} transition duration-200 ${visible ? 'rotate-45' : ''}`}>
                         <img className={`w-28 md:w-32`} src="plus.svg" />
                     </button>
@@ -47,6 +56,8 @@ const AlbumCard = ({ width }) => {
                 </form>
             </div>
             
+            
+
         </div>
         
     )
